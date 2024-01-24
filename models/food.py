@@ -13,12 +13,13 @@ class Food(db.Model):
     time: Mapped[datetime.datetime] = db.Column(db.TIMESTAMP, server_default = func.now(), nullable=False) # pylint: disable=works as func.now()
 
     def to_dict(self):
+        """method to return the food as dict"""
         return {
             "id": self.id,
             "name": self.name,
             "description": self.description,
             "calories": self.calories,
             "diet": self.diet,
-            "time": self.time.strftime("%B %d, %Y at %H:%M:%S")
+            "time": self.time.strftime("%B %d, %Y at %H:%M:%S") #formating the timestam (datetime.datetime())
         }
     

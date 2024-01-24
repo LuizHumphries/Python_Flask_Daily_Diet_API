@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "e3abb7de-9dfc-4cb4-b539-d51966819f6f",
+		"name": "API Daily Diet Food",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32499924"
+	},
+	"item": [
+		{
+			"name": "POST Populate db (temporary)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"name\": \"Banana\",\r\n    \"description\": \"A yellow fruit with a peel\",\r\n    \"calories\": 105,\r\n    \"time\": \"2023-01-05T10:15:32\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Pizza\",\r\n    \"description\": \"A round dish with cheese, tomato sauce and toppings\",\r\n    \"calories\": 285,\r\n    \"time\": \"2023-01-12T18:30:45\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Salad\",\r\n    \"description\": \"A mix of fresh vegetables and dressing\",\r\n    \"calories\": 150,\r\n    \"time\": \"2023-01-20T12:00:00\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Burger\",\r\n    \"description\": \"A sandwich with a meat patty, cheese, lettuce, tomato and sauce\",\r\n    \"calories\": 354,\r\n    \"time\": \"2023-01-25T19:45:10\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Apple\",\r\n    \"description\": \"A red fruit with a stem and seeds\",\r\n    \"calories\": 95,\r\n    \"time\": \"2023-01-31T09:00:00\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Cake\",\r\n    \"description\": \"A sweet baked dessert with frosting and layers\",\r\n    \"calories\": 400,\r\n    \"time\": \"2023-02-03T15:30:00\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Soup\",\r\n    \"description\": \"A liquid dish with vegetables, meat and spices\",\r\n    \"calories\": 200,\r\n    \"time\": \"2023-02-10T13:15:00\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Sandwich\",\r\n    \"description\": \"Two slices of bread with cheese, ham, lettuce and mayo\",\r\n    \"calories\": 250,\r\n    \"time\": \"2023-02-15T11:45:00\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Orange\",\r\n    \"description\": \"A citrus fruit with a peel and segments\",\r\n    \"calories\": 62,\r\n    \"time\": \"2023-02-18T08:30:00\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Pasta\",\r\n    \"description\": \"A dish made of noodles, sauce and cheese\",\r\n    \"calories\": 310,\r\n    \"time\": \"2023-02-22T17:00:00\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Carrot\",\r\n    \"description\": \"A crunchy orange vegetable with a green top\",\r\n    \"calories\": 25,\r\n    \"time\": \"2023-02-25T10:00:00\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Ice cream\",\r\n    \"description\": \"A frozen dessert made of milk, cream and sugar\",\r\n    \"calories\": 207,\r\n    \"time\": \"2023-02-28T20:15:00\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Rice\",\r\n    \"description\": \"A grain that is cooked and eaten as a staple food\",\r\n    \"calories\": 205,\r\n    \"time\": \"2023-02-05T14:00:00\",\r\n    \"diet\": true\r\n  },\r\n  {\r\n    \"name\": \"Chicken\",\r\n    \"description\": \"A type of meat that comes from a bird\",\r\n    \"calories\": 239,\r\n    \"time\": \"2023-02-12T18:00:00\",\r\n    \"diet\": false\r\n  },\r\n  {\r\n    \"name\": \"Milk\",\r\n    \"description\": \"A white liquid that comes from cows or other animals\",\r\n    \"calories\": 103,\r\n    \"time\": \"2023-02-20T07:00:00\",\r\n    \"diet\": true\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/food",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Food",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Banana da terra\",\r\n    \"description\": \"A yellow fruit with a peel from earth power\",\r\n    \"calories\": 105,\r\n    \"time\": \"2023-01-05T10:15:32\",\r\n    \"diet\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/food",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET List All Foods",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/food",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"food"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Food",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/food/18",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"food",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Food",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Comida atualizada 1\",\r\n    \"description\": \"Comida atualizada 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/food/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"food",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Food",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/food/6",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"food",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

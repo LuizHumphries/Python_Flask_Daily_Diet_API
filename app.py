@@ -8,7 +8,6 @@ app.config['SECRET_KEY'] = "your_secret_key"
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:admin@127.0.0.1:3306/daily-diet-crud"
 db.init_app(app)
 
-
 @app.route('/food', methods=['POST'])
 def create_food():
     """ Function responsible for the food creation in DB - MySQL """    
@@ -28,17 +27,44 @@ def create_food():
         db.session.commit()
         return jsonify({"message": "Food sucessifuly created"})
 
-
 @app.route('/food', methods=['GET'])
-def get_foods():    
+def get_foods():
+    """Get the total food list"""   
     food_list = [food.to_dict() for food in Food.query.all()]
-    return jsonify(food_list)
+    return food_list
 
-@app.route('/food/<int:food_id>', methods=['GET'])
-def get_food(food_id):
-    pass
+@app.route('/food/<int:id>', methods=['GET'])
+def get_food(id):
+    """Get a specific food from db using index/id"""   
+    food = Food.query.get(id)
+    if food:
+        return food.to_dict()
+    return jsonify({"message": "Food id not found"}), 404
 
+@app.route('/food/<int:id>', methods=['PUT'])
+def update_food(id):
+    """Update a specific food from index/id""" 
+    request_data = request.json #new data
+    food = Food.query.get(id) #data from database 
+    if food:   
+        food.name = request_data.get('name', food.name)
+        food.description = request_data.get('description', food.description)
+        food.calories = request_data.get('calories', food.calories)
+        food.time = request_data.get('time', food.time)
+        food.diet = request_data.get('diet', food.diet)
+        db.session.commit()
+        return jsonify({"message": "Food updated successfully"})
+    return jsonify({"message": "Food id not found"})
 
+@app.route('/food/<int:id>', methods=['DELETE'])
+def delete_food(id):
+    """Delete a specific food from db usin index/id"""   
+    food = Food.query.get(id)
+    if food:
+        db.session.delete(food)
+        db.session.commit()
+        return jsonify({"message": f"{food.name} deleted successfully"})
+    return jsonify({"message": "Food id not found"}), 404
 
 
 if __name__ == "__main__":
