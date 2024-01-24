@@ -13,22 +13,32 @@ db.init_app(app)
 def create_food():
     """ Function responsible for the food creation in DB - MySQL """    
     request_data = request.json   
-
+    
     food_name = request_data.get("name") # non nullable
     food_description = request_data.get("description") # non nullable
     food_calories = request_data.get("calories") # non nullable
     food_diet = request_data.get("diet") # default insertion as False
     food_time = request_data.get("time") # non nullable
     
-    if food_name and food_description and food_calories:
-        
+    if food_name and food_description and food_calories:        
         food_to_db = Food(name=food_name, description=food_description,
                         calories=food_calories, diet=food_diet,
-                        time=food_time)
-        
+                        time=food_time)        
         db.session.add(food_to_db)
         db.session.commit()
         return jsonify({"message": "Food sucessifuly created"})
+
+
+@app.route('/food', methods=['GET'])
+def get_foods():    
+    food_list = [food.to_dict() for food in Food.query.all()]
+    return jsonify(food_list)
+
+@app.route('/food/<int:food_id>', methods=['GET'])
+def get_food(food_id):
+    pass
+
+
 
 
 if __name__ == "__main__":
