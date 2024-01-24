@@ -25,7 +25,7 @@ def create_food():
                         time=food_time)        
         db.session.add(food_to_db)
         db.session.commit()
-        return jsonify({"message": "Food sucessifuly created"})
+        return jsonify({"message": "Food sucessifuly created", "food_id": food_to_db.id}) 
 
 @app.route('/food', methods=['GET'])
 def get_foods():
